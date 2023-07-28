@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ServerElementComponent implements OnInit {
   // use @Input to make element property accessible outside server-element component you have the option to pass in an alias 'srvElement
-  // by default properites are only accessible to their individual component
+  // NOTE: by default properites are only accessible to their individual component
   @Input('srvElement')
   element: {
     type: string,
