@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
   templateUrl: './server-element.component.html',
-  styleUrls: ['./server-element.component.css']
+  styleUrls: ['./server-element.component.css'],
+  encapsulation: ViewEncapsulation.Emulated // if ViewEncapsulation.NONE anything added to this component's css will override the other components
 })
 export class ServerElementComponent implements OnInit {
   // use @Input to make element property accessible outside server-element component you have the option to pass in an alias 'srvElement
