@@ -12,19 +12,20 @@ export class CockpitComponent implements OnInit {
 
 
 
-  newServerName='';
-  newServerContent='';
+  // newServerName='';
+  // newServerContent='';
 
   constructor() { }
 
   ngOnInit(): void {
   }
   //when a button is clicked it will emit an event to the app component
-  onAddServer() {
-   this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent})
+  onAddServer(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+    console.log(nameInput.value)
+   this.serverCreated.emit({serverName: nameInput.value, serverContent: contentInput.value})
   }
 
-  onAddBlueprint() {
-    this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent})
+  onAddBlueprint(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+    this.blueprintCreated.emit({serverName: nameInput.value, serverContent: contentInput.value })
   }
 }
