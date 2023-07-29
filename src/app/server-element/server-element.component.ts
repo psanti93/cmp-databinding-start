@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild,ViewEncapsulation, OnChanges, SimpleChanges, DoCheck, AfterContentChecked, AfterContentInit,AfterViewInit, AfterViewChecked, OnDestroy, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ContentChild,ViewEncapsulation, OnChanges, SimpleChanges, DoCheck, AfterContentChecked, AfterContentInit,AfterViewInit, AfterViewChecked, OnDestroy, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -26,7 +26,7 @@ OnDestroy
   };
  @Input() name: string;
  @ViewChild('heading',{static:true}) header: ElementRef;
-
+ @ContentChild('contentParagraph',{static:true}) paragraph: ElementRef;
 
 
   constructor() {
@@ -40,6 +40,8 @@ OnDestroy
   ngOnInit(): void {
     console.log('ng-on-init-called')
     console.log("text content:" + this.header.nativeElement.textContent); //won't render before ngOnViewInit cause the view hasn't been rendered yet at this point
+    console.log("text content paragraph:" + this.paragraph.nativeElement.textContent); //won't render before ngOnViewInit cause the view hasn't been rendered yet at this point
+
   }
 
  //gets called whenever there is a change called
@@ -49,6 +51,8 @@ OnDestroy
   // only called once
   ngAfterContentInit(){
     console.log("ngAfterContent init called")
+    console.log("text content paragraph:" + this.paragraph.nativeElement.textContent); //won't render before ngOnViewInit cause the view hasn't been rendered yet at this point
+
   }
 
   ngAfterContentChecked() {
